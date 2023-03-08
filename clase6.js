@@ -24,6 +24,8 @@ const listadoNoticias = [{
 /* -------------------------- PRACTICANDO ATRIBUTOS ------------------------- */
 // Completemos correctamente el 'alt' de cada imagen con la frase "miniatura de noticia"
 
+
+/*
 const imagenes = document.querySelectorAll('.noticias article img');
 console.log(imagenes);
 console.log("alt: "+imagenes[0].getAttribute('alt')) //vemos que está vacío
@@ -36,7 +38,7 @@ for (let i = 0; i < imagenes.length; i++) {
     imagenes[i].setAttribute('alt', 'miniatura de noticia');
     console.log(imagenes[i])
 }
-
+*/
 
 /* ---------------------- PRACTICANDO CREACION DE NODOS --------------------- */
 // 1- Ahora vamos a ir al HTML y eliminar los 3 Article que se encuentran en el main.
@@ -45,6 +47,7 @@ for (let i = 0; i < imagenes.length; i++) {
 
 const main = document.querySelector('main');
 
+/*
 listadoNoticias.forEach(noticia => {
     // creamos los elementos👇
     const article = document.createElement('article');
@@ -67,7 +70,7 @@ listadoNoticias.forEach(noticia => {
     main.appendChild(article)
 
 })
-
+*/
 
 
 /* -------------------------------------------------------------------------- */
@@ -81,9 +84,24 @@ listadoNoticias.forEach(noticia => {
 // Ejemplo: si quiero insertar un titulo en el body, haría los siguiente:
 // document.querySelector('body').innerHTML += `<h1>Nuevo Título</h1>`;
 
-function renderizandoElementos() {
+
+// console.log(articulos)
+
+
+// articulos.forEach(article => {
+//     console.log(article.innerHTML)
+// })
+
+function renderizandoElementos(articles, noticias) {
     // desarrollar la consigna aquí
-
-
+    let noticia = 0;
+    articles.forEach(art => {
+        main.innerHTML += `<article>
+        <h2>${noticias[noticia].titulo}</h2>
+        <img src="${noticias[noticia].foto}" alt="miniatura de noticia">
+        <p>${noticias[noticia].epigrafe}</p>
+        </article>`;
+        noticia++;
+    });
 }
-renderizandoElementos();
+renderizandoElementos(articulos, listadoNoticias);
