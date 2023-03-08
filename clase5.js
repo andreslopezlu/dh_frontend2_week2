@@ -15,32 +15,23 @@ const titulos = document.querySelectorAll('article h2');
 console.log(menuItems[0].style)
 // agregamos manualmente nuevos estilos en el menú
 menuItems.forEach( item => {
-    item.style.textTransform = "uppercase";
+    item.style.textTransform = "lowercase";
     item.style.color = "aqua";
     item.style.backgroundColor = "rgba(255,255,255,0.2";
     item.style.borderRadius = "50vh";
 })
-
 console.log(contenedorNoticias)
 
 /* ----------------------------- Editando clases ---------------------------- */
 
 // vamos probando uno a uno los métodos
-console.log(sitio.classList)
-
-console.log(sitio.classList.contains('dark'))
-console.log(sitio.classList)
-
-console.log(sitio.classList.add('dark'))
-console.log(sitio.classList)
-
-console.log(sitio.classList.add('remove'))
-console.log(sitio.classList)
-
-console.log(sitio.classList.toggle('remove'))
-console.log(sitio.classList)
-
-
+// console.log(sitio.classList)
+// console.log(sitio.classList.contains('dark'))
+// console.log(sitio.classList.add('dark'))
+// console.log(sitio.classList.contains('dark'))
+// console.log(sitio.classList.add('remove'))
+// console.log(sitio.classList.toggle('remove'))
+// console.log(sitio.classList.toggle('remove'))
 
 /* -------------------------------------------------------------------------- */
 /*                          CONSIGNA MESA DE TRABAJO                          */
@@ -49,8 +40,13 @@ console.log(sitio.classList)
 // 1- Desarrollar la función a continuacion para que el usuario elija el tema del sitio.
 // 2- Debemos preguntarle al usuario mediante un confirm si desea usar el modo oscuro.
 // 3- Si el usuario confirma debemos aplicar la clase "dark" al "sitio", si cancela debe quedar en modo claro.
-// 4- A su vez, si está en modo onsecuritypolicyviolation, el texto del boton debe decir "Cambiar a modo claro 🌞". De lo contrario, si está en modo claro debeb decir "Cambiar a modo oscuro 🌛"
+// 4- A su vez, si está en modo oscuro, el texto del boton debe decir "Cambiar a modo claro 🌞". De lo contrario, si está en modo claro debeb decir "Cambiar a modo oscuro 🌛"
 function elegirTema() {
-    
+    btnTema.innerHTML = 'Cambiar a modo oscuro 🌛'
+    let modoOscuro = confirm ('Desea activar el modo oscuro')
+    if (modoOscuro) {
+        sitio.classList.toggle('dark')
+        btnTema.innerHTML = 'Cambiar a modo claro 🌞'
+    }
 }
 elegirTema();
